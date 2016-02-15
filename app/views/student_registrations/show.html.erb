@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @student_registration.user %>
+</p>
+
+<p>
+  <strong>Seminar:</strong>
+  <%= @student_registration.seminar %>
+</p>
+
+<%= link_to 'Edit', edit_student_registration_path(@student_registration) %> |
+<%= link_to 'Back', student_registrations_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @lecture_comment.body %>
+</p>
+
+<p>
+  <strong>Lecture:</strong>
+  <%= @lecture_comment.lecture %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @lecture_comment.user %>
+</p>
+
+<%= link_to 'Edit', edit_lecture_comment_path(@lecture_comment) %> |
+<%= link_to 'Back', lecture_comments_path %>

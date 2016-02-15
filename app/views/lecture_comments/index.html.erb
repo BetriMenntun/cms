@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Lecture Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>Lecture</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lecture_comments.each do |lecture_comment| %>
+      <tr>
+        <td><%= lecture_comment.body %></td>
+        <td><%= lecture_comment.lecture %></td>
+        <td><%= lecture_comment.user %></td>
+        <td><%= link_to 'Show', lecture_comment %></td>
+        <td><%= link_to 'Edit', edit_lecture_comment_path(lecture_comment) %></td>
+        <td><%= link_to 'Destroy', lecture_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lecture comment', new_lecture_comment_path %>

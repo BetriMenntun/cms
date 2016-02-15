@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lms</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+   <%= link_to 'Lectures', controller: 'lectures' %>
+-  <%= link_to 'Lecture Comments', controller: 'lecture_comments' %>
+-  <%= link_to 'Seminars', controller: 'seminars' %>
+-  <%= link_to 'Student Reg', controller: 'student_registrations' %>
+-  <%= link_to 'Users', controller: 'users' %>
+-  <%= link_to 'UserTypes', controller: 'usertypes' %>
+
+<%= yield %>
+
+</body>
+</html>
