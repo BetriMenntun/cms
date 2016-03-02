@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/BetriMenntun/cms.png?label=ready&title=Ready)](https://waffle.io/BetriMenntun/cms)
 # cms
 Prototype for a CMS
 
