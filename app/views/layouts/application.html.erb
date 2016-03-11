@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Lms</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-   <%= link_to 'Lectures', controller: 'lectures' %>
--  <%= link_to 'Lecture Comments', controller: 'lecture_comments' %>
--  <%= link_to 'Seminars', controller: 'seminars' %>
--  <%= link_to 'Student Reg', controller: 'student_registrations' %>
--  <%= link_to 'Users', controller: 'users' %>
--  <%= link_to 'UserTypes', controller: 'usertypes' %>
+  <head>
+    <title>Lms</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= link_to "Index / Frontpage", welcome_index_path  %> ---
 
-<%= yield %>
+    <%= link_to 'Lectures',         lectures_path %>
+    <%= link_to 'Lecture Comments', lecture_comments_path %>
+    <%= link_to 'Seminars',         seminars_path %>
+    <%= link_to 'Student Reg',      student_registrations_path %>
+    <%= link_to 'UserTypes',        usertypes_path %> ---
 
-</body>
+    <% if current_user %>
+      <%= link_to current_user.email, edit_user_registration_path %>
+      <%= link_to "log out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path %>
+      <%= link_to "Sign up", new_user_registration_path %>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
 </html>
