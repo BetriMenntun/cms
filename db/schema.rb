@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305202048) do
+ActiveRecord::Schema.define(version: 20160311194217) do
 
   create_table "lecture_comments", force: :cascade do |t|
     t.text     "body"
@@ -37,7 +37,10 @@ ActiveRecord::Schema.define(version: 20160305202048) do
     t.boolean  "visible"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "seminars", ["user_id"], name: "index_seminars_on_user_id"
 
   create_table "student_registrations", force: :cascade do |t|
     t.integer  "user_id"
