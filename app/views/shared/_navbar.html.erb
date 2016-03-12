@@ -1,0 +1,39 @@
+<nav class="navbar navbar-light bg-faded">
+  <%= link_to "BetriMenntun", welcome_index_path, class: "navbar-brand"  %>
+  <ul class="nav navbar-nav">
+    <li class="nav-item ">
+    </li>
+    <li class="nav-item <%= 'active' if current_page?(lectures_path) %>">
+      <%= link_to 'Lectures', lectures_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item <%= 'active' if current_page?(lecture_comments_path) %>">
+      <%= link_to 'Lecture Comments', lecture_comments_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item <%= 'active' if current_page?(seminars_path) %>">
+      <%= link_to 'Seminars',         seminars_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item <%= 'active' if current_page?(student_registrations_path) %>">
+      <%= link_to 'Student Reg',      student_registrations_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item <%= 'active' if current_page?(usertypes_path) %>">
+      <%= link_to 'UserTypes',        usertypes_path, class: "nav-link" %>
+    </li>
+
+    <li class="nav-item">
+      <% if current_user %>
+        <%= link_to current_user.email, edit_user_registration_path %>
+        <%= link_to "log out", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path %>
+        <%= link_to "Sign up", new_user_registration_path %>
+      <% end %>
+
+    </li>
+  </ul>
+  <form class="form-inline pull-xs-right">
+    <input class="form-control" type="text" placeholder="Search">
+    <button class="btn btn-success-outline" type="submit">Search</button>
+  </form>
+</nav>
+
+
