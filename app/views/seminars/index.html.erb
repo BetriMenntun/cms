@@ -13,7 +13,7 @@
   <tbody>
     <% @seminars.each do |seminar| %>
       <tr>
-        <td><%= seminar.name %></td>
+        <td><%= link_to seminar.name, seminar %></td>
         <td><%= seminar.active %></td>
         <td><%= seminar.visible %></td>
         <td><%= link_to 'Show', seminar %></td>

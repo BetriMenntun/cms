@@ -18,22 +18,32 @@
     <li class="nav-item <%= 'active' if current_page?(usertypes_path) %>">
       <%= link_to 'UserTypes',        usertypes_path, class: "nav-link" %>
     </li>
-
     <li class="nav-item">
-      <% if current_user %>
-        <%= link_to current_user.email, edit_user_registration_path %>
-        <%= link_to "log out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path %>
-        <%= link_to "Sign up", new_user_registration_path %>
-      <% end %>
-
+      <form class="form-inline ">
+        <input class="form-control" type="text" placeholder="Search">
+        <button class="btn btn-success-outline" type="submit">Search</button>
+      </form>
     </li>
   </ul>
-  <form class="form-inline pull-xs-right">
-    <input class="form-control" type="text" placeholder="Search">
-    <button class="btn btn-success-outline" type="submit">Search</button>
-  </form>
+  <ul class="nav navbar-nav pull-xs-right">
+
+      <% if current_user %>
+        <li class="nav-item ">
+          <%= link_to current_user.email, edit_user_registration_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item ">
+          <%= link_to "log out", destroy_user_session_path, method: :delete , class:"nav-link"%>
+        </li>
+      <% else %>
+        <li class="nav-item ">
+          <%= link_to "Login", new_user_session_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item ">
+          <%= link_to "Sign up", new_user_registration_path, class:"nav-link" %>
+        </li>
+      <% end %>
+
+  </ul>
 </nav>
 
 

@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-user = User.create!  :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+user = User.create! :username => 'jojo', :bio => 'Lone ranger',  :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
 
 Lecture.find_or_create_by(
   title: "titill",
