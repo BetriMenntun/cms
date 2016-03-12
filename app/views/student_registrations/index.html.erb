@@ -2,7 +2,7 @@
 
 <h1>Listing Student Registrations</h1>
 
-<table>
+<table class="table table-bordered table-hover table-sm">
   <thead>
     <tr>
       <th>User</th>
@@ -14,7 +14,7 @@
   <tbody>
     <% @student_registrations.each do |student_registration| %>
       <tr>
-        <td><%= student_registration.user.try(:username) %></td>
+        <td><%= student_registration.user.try(:email) %></td>
         <td><%= student_registration.seminar.try(:name) %></td>
         <td><%= link_to 'Show', student_registration %></td>
         <td><%= link_to 'Edit', edit_student_registration_path(student_registration) %></td>
