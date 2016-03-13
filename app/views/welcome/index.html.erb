@@ -1,2 +1,17 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h3>Welcome <%= current_user.username %></h3>
+<p>Last sign in at <%= current_user.last_sign_in_at %></p>
+
+<h4>Seminars you are teaching:</h4>
+<% @teaching.each do |t| %>
+  <%= t.seminar.try(:name) %>
+  <br />
+<% end %>
+
+<br />
+<h4>Seminars you are attending:</h4>
+<p>We need a new table for TeacherRegistration, using StudReg meanwhile</p>
+<% @learning.each do |t| %>
+  <%= t.seminar.try(:name) %>
+  <br />
+<% end %>
+
