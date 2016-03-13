@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Teacher Registrations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Seminar</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teacher_registrations.each do |teacher_registration| %>
+      <tr>
+        <td><%= teacher_registration.user.try(:email) %></td>
+        <td><%= teacher_registration.seminar.try(:name) %></td>
+        <td><%= link_to 'Show', teacher_registration %></td>
+        <td><%= link_to 'Edit', edit_teacher_registration_path(teacher_registration) %></td>
+        <td><%= link_to 'Destroy', teacher_registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Teacher registration', new_teacher_registration_path %>

@@ -23,9 +23,9 @@ Lecture.find_or_create_by(
 end
 
 
-Usertype.find_or_create_by(name: "Teacher");
-Usertype.find_or_create_by(name: "Student");
-Usertype.find_or_create_by(name: "Parent");
+#Usertype.find_or_create_by(name: "Teacher");
+#Usertype.find_or_create_by(name: "Student");
+#Usertype.find_or_create_by(name: "Parent");
 
 5.times do |u|
   User.find_or_create_by(
@@ -33,13 +33,19 @@ Usertype.find_or_create_by(name: "Parent");
     email: "user#{u}@lala.lal",
     profile: "aaa",
     bio: "aasdfasf",
-    active: true,
-    usertype: Usertype.offset(rand(Usertype.count)).first
+    active: true
+#    usertype: Usertype.offset(rand(Usertype.count)).first
   )
 end
 
 12.times do |s|
   StudentRegistration.create(
+    user:User.offset(rand(User.count)).first,
+    seminar:Seminar.offset(rand(Seminar.count)).first
+  )
+end
+12.times do |s|
+  TeacherRegistration.create(
     user:User.offset(rand(User.count)).first,
     seminar:Seminar.offset(rand(Seminar.count)).first
   )

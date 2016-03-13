@@ -11,6 +11,7 @@ class SeminarsController < ApplicationController
   # GET /seminars/1
   # GET /seminars/1.json
   def show
+    @students = StudentRegistration.where(:seminar_id => @seminar.id)
   end
 
   # GET /seminars/new

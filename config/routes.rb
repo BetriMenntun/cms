@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  resources :teacher_registrations
   get 'welcome/index'
 
   devise_for :users
-  resources :usertypes
   root 'welcome#index'
 
   resources :lecture_comments
