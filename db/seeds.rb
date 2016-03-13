@@ -6,35 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-user = User.create! :username => 'jojo', :bio => 'Lone ranger',  :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+user = User.create!( username:  'jd',   bio:  'Lone ranger',  email: 'jd@gmail.com',  password: 'password', password_confirmation: 'password', active: true, profile: 'profile url' )
+user = User.create!( username:  'turk', bio:  'Some bio ',  email:  'turk@gmail.com', password: 'password', password_confirmation: 'password', active: true, profile: 'profile url' )
+user = User.create!( username:  'test', bio:  'Some bio ',  email:  'test@gmail.com', password: 'password', password_confirmation: 'password', active: true, profile: 'profile url' )
 
-Lecture.find_or_create_by(
-  title: "titill",
-  url: "lala"
-)
+10.times do |l|
+  Lecture.find_or_create_by(
+    title: "Lecture #{l}",
+    url: "lecture #{l} url "
+  )
+end
 
 10.times do |s|
-
   Seminar.find_or_create_by(
     name: "Seminar #{s}",
     active: true,
     visible: true,
-  )
-end
-
-
-#Usertype.find_or_create_by(name: "Teacher");
-#Usertype.find_or_create_by(name: "Student");
-#Usertype.find_or_create_by(name: "Parent");
-
-5.times do |u|
-  User.find_or_create_by(
-    username: "user#{u}",
-    email: "user#{u}@lala.lal",
-    profile: "aaa",
-    bio: "aasdfasf",
-    active: true
-#    usertype: Usertype.offset(rand(Usertype.count)).first
   )
 end
 

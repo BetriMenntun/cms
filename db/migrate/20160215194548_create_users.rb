@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :profile
       t.text :bio
       t.boolean :active
-      t.references :usertype, index: true, foreign_key: true
 
       t.timestamps null: false
     end

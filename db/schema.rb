@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160313124600) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "lecture_comments", force: :cascade do |t|
     t.text     "body"
     t.integer  "lecture_id"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20160313124600) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "lecture_comments", ["lecture_id"], name: "index_lecture_comments_on_lecture_id"
-  add_index "lecture_comments", ["user_id"], name: "index_lecture_comments_on_user_id"
+  add_index "lecture_comments", ["lecture_id"], name: "index_lecture_comments_on_lecture_id", using: :btree
+  add_index "lecture_comments", ["user_id"], name: "index_lecture_comments_on_user_id", using: :btree
 
   create_table "lectures", force: :cascade do |t|
     t.string   "title"
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160313124600) do
     t.integer  "user_id"
   end
 
-  add_index "seminars", ["user_id"], name: "index_seminars_on_user_id"
+  add_index "seminars", ["user_id"], name: "index_seminars_on_user_id", using: :btree
 
   create_table "student_registrations", force: :cascade do |t|
     t.integer  "user_id"
@@ -49,8 +52,8 @@ ActiveRecord::Schema.define(version: 20160313124600) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "student_registrations", ["seminar_id"], name: "index_student_registrations_on_seminar_id"
-  add_index "student_registrations", ["user_id"], name: "index_student_registrations_on_user_id"
+  add_index "student_registrations", ["seminar_id"], name: "index_student_registrations_on_seminar_id", using: :btree
+  add_index "student_registrations", ["user_id"], name: "index_student_registrations_on_user_id", using: :btree
 
   create_table "teacher_registrations", force: :cascade do |t|
     t.integer  "user_id"
@@ -59,15 +62,14 @@ ActiveRecord::Schema.define(version: 20160313124600) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "teacher_registrations", ["seminar_id"], name: "index_teacher_registrations_on_seminar_id"
-  add_index "teacher_registrations", ["user_id"], name: "index_teacher_registrations_on_user_id"
+  add_index "teacher_registrations", ["seminar_id"], name: "index_teacher_registrations_on_seminar_id", using: :btree
+  add_index "teacher_registrations", ["user_id"], name: "index_teacher_registrations_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "profile"
     t.text     "bio"
     t.boolean  "active"
-    t.integer  "usertype_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -82,14 +84,14 @@ ActiveRecord::Schema.define(version: 20160313124600) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["usertype_id"], name: "index_users_on_usertype_id"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "usertypes", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "lecture_comments", "lectures"
+  add_foreign_key "lecture_comments", "users"
+  add_foreign_key "seminars", "users"
+  add_foreign_key "student_registrations", "seminars"
+  add_foreign_key "student_registrations", "users"
+  add_foreign_key "teacher_registrations", "seminars"
+  add_foreign_key "teacher_registrations", "users"
 end
