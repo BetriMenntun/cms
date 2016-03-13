@@ -3,7 +3,7 @@
 
 <h4>Seminars you are teaching:</h4>
 <% @teaching.each do |t| %>
-  <%= t.seminar.try(:name) %>
+  <%= link_to t.seminar.try(:name), t.seminar  %>
   <br />
 <% end %>
 
@@ -11,7 +11,7 @@
 <h4>Seminars you are attending:</h4>
 <p>We need a new table for TeacherRegistration, using StudReg meanwhile</p>
 <% @learning.each do |t| %>
-  <%= t.seminar.try(:name) %>
+  <%= link_to t.seminar.try(:name), t.seminar  %>
   <br />
 <% end %>
 
