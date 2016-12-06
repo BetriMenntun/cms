@@ -1,9 +1,12 @@
 language: ruby
 before_install:
-  - echo abcdefg
+- echo abcdefg
 rvm:
-  - 2.2
+- 2.2
 deploy:
   provider: heroku
-  app: bmcms
-  api_key: ""
+  api_key:
+    secure: pM2jcIpkCIMlDvJ1nOb3YwaFV6OpbAcy2bMIcSd6bnpZtCNa5c9a27uA3P1RFwdOg6SvwTRt3M0Z5zdsRIFURTKwAbe3/2xv4T28DjiJeFZXkmvjFt+8evwjCjGdIF2V6Ac5jP22JQWaTp8oegIMXoa63bIqovCbmVGK6/DCSal0wMpZUlZHZFadmjf6/93wNqmE3E8jDRClCKeqynHW6CYSqM47h+3ccc+PTY+RFUc7J4c5IhQWqwXcB+BZvbWNXVzU3laSH+8rqFJkvsrT98J9VEu5MbR6Jo0/foBniPcngJM/Zc0Tl09MctAPZHObBLaOWpVSqUAw0ofVidzkoRxqakVa5JKPw+H1k7l6L2GzOoAiVuaCv3b0e4mCjBh/Kay835ifT9r1+MtV/WWRwdYjHK+zmq67nJPBVc7UZiNzA8IeNjj5jngMvmM/q9nnLBEvy6L2dqTkv9Li5CJdulVGCW2CgMcDUXDnujSF+KG9QabKqDG2BCVqhovlWChPGSF7Y8Rj9PlHRVWDXwbOrc3/1DsBFCZuuzasJSfKapy0hRcsY2ysi5cJdD2QWXh24nCZf6rjzV6guHXDGEmmr3AfHvue/XdoHjpJ1feY3vWm1JShPrVvImOHhCse21qaO2+f1E1gIGAysHeFyP0NYUwf2lqVhvTPWHOpQsicYQU=
+  app: cms
+  on:
+    repo: BetriMenntun/cms
