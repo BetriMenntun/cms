@@ -1,0 +1,9 @@
+language: ruby
+before_install:
+  - echo abcdefg
+rvm:
+  - 2.2
+deploy:
+  provider: heroku
+  app: bmcms
+  api_key: ""
