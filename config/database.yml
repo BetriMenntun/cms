@@ -11,6 +11,8 @@ default: &default
   username: postgres
   password: postgres
 
+  host: localhost
+
 development:
   <<: *default
   database: betrimenntun
