@@ -1,11 +1,11 @@
 language: ruby
 before_install:
-  - echo abcdefg
+  - echo =================
 
 before_script:
   - bundle exec rake db:create
     #- bundle exec rake db:test:prepare
-  - bundle exec rake db:seed
+  - bundle exec rake db:migrate
 rvm:
 - 2.2
 deploy:
