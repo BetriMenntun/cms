@@ -9,7 +9,7 @@ To test run the following after cloning:
 
 `bundle install`
 
-`rake db:migrate`
+`rake db:create db:migrate`
 
 `rake db:seed`
 

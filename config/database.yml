@@ -6,12 +6,13 @@
 #
 default: &default
   adapter: postgresql
+  encoding: unicode
   pool: 5
   timeout: 5000
-  username: postgres
-  password: postgres
+#  username: postgres
+#  password: postgres
 
-  host: localhost
+#  host: localhost
 
 development:
   <<: *default
@@ -22,6 +23,11 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  database: betrimenntun_test
 
 production:
   <<: *default
+  host: <%= ENV['BETRIMENNTUN_DATABASE_HOST'] %>
+  database: <%= ENV['BETRIMENNTUN_DATABASE_NAME'] %>
+  username: <%= ENV['BETRIMENNTUN_DATABASE_USERNAME'] %>
+  password: <%= ENV['BETRIMENNTUN_DATABASE_PASSWORD'] %>
